@@ -1,0 +1,37 @@
+{
+  "name": "zeroth",
+  "version": "0.0.1",
+  "description": "Open source for Delivery System",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha dist/test/controllers/",
+    "compile": "tsc",
+	"prestart": "tsc",
+	"start": "node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giautm/zeroth.git"
+  },
+  "keywords": [
+    "zeroth"
+  ],
+  "author": "giautm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giautm/zeroth/issues"
+  },
+  "homepage": "https://github.com/giautm/zeroth#readme",
+  "dependencies": {
+    "restify": "^4.0.4"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.9.2",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2",
+    "typescript": "^1.6.2"
+  }
+}
