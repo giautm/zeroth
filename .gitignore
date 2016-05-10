@@ -39,3 +39,6 @@ checkstyle-result.xml
 
 # generated js scripts from type-script
 dist
+
+# WebStorm
+.idea
