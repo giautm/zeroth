@@ -5,7 +5,8 @@ import {logger} from './logger';
 import * as auth from './core/auth';
 
 var server = restify.createServer({
-    name: settings.name
+    name: settings.name,
+    log: logger
 });
 
 restify.CORS.ALLOW_HEADERS.push('authorization');

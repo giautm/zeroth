@@ -11,8 +11,8 @@ var rootPath = path.normalize(__dirname + '/..');
 var env = process.env.NODE_ENV || 'development';
 
 export let settings:Config = {
-    name: 'restify-typescript-seed',
-    version: '2.0.0',
+    name: 'zeroth',
+    version: '0.0.1',
     port: 3000,
     env: 'dev'
 };

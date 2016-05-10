@@ -2,7 +2,7 @@ import * as bunyan from 'bunyan';
 import {settings} from './config';
 
 export let logger = bunyan.createLogger({
-    name: 'myapp',
+    name: settings.name,
     streams: [
         {
             level: 'info',
