@@ -1,3 +1,5 @@
+import * as path from 'path';
+
 export interface Config {
     name:string,
     port:number,
@@ -5,7 +7,6 @@ export interface Config {
     version:string
 }
 
-var path = require('path');
 var rootPath = path.normalize(__dirname + '/..');
 var env = process.env.NODE_ENV || 'development';
 

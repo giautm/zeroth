@@ -1,4 +1,4 @@
-import restify = require('restify');
+import * as restify from 'restify';
 
 export default class SampleRouteController {
 

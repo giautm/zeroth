@@ -1,4 +1,4 @@
-import bunyan = require('bunyan');
+import * as bunyan from 'bunyan';
 import {settings} from './config';
 
 export let logger = bunyan.createLogger({

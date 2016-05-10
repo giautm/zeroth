@@ -1,28 +1,30 @@
-import restify = require('restify');
-import fs = require('fs');
+import * as restify from 'restify';
+import * as fs from 'fs';
 import {settings} from './config';
 import {logger} from './logger';
+import * as auth from './core/auth';
 
-var api = restify.createServer({
+var server = restify.createServer({
     name: settings.name
 });
 
 restify.CORS.ALLOW_HEADERS.push('authorization');
-api.use(restify.CORS());
-api.pre(restify.pre.sanitizePath());
-api.use(restify.acceptParser(api.acceptable));
-api.use(restify.bodyParser());
-api.use(restify.queryParser());
-api.use(restify.authorizationParser());
-api.use(restify.fullResponse());
+server.use(restify.CORS());
+server.pre(restify.pre.sanitizePath());
+server.use(restify.acceptParser(server.acceptable));
+server.use(restify.bodyParser());
+server.use(restify.queryParser());
+server.use(restify.authorizationParser());
+server.use(restify.fullResponse());
+server.use(auth.Auth());
 
 fs.readdirSync(__dirname + '/routes').forEach(function (routeConfig:string) {
     if (routeConfig.substr(-3) === '.js') {
         var route = require(__dirname + '/routes/' + routeConfig);
-        route.routes(api);
+        route.routes(server);
     }
 });
 
-api.listen(settings.port, function () {
-    console.log(`INFO: ${settings.name} is running at ${api.url}`);
+server.listen(settings.port, function () {
+    console.log(`INFO: ${settings.name} is running at ${server.url}`);
 });
